@@ -1,0 +1,33 @@
+@include "base.fgd"
+@include "halflife2.fgd"
+
+@SolidClass base(Targetname) = trigger_allplayers : "Volume filled with air"
+[
+	Disabled(choices) : "Start disabled" : 0 : "" =
+	[
+		1 : "Yes"
+		0 : "No"
+	]
+
+	input Enable(void)   : "Enable the entity."
+	input Disable(void)  : "Disable the entity."
+
+  output OnAllPlayers(void) : ""
+]
+
+@PointClass base(Targetname, Angles) studio("models/editor/playerstart.mdl") = info_checkpoint : ""
+[
+  input SetAsCurCheckpoint(void)   : ""
+]
+
+@PointClass base(Targetname, Angles) size(16 16 16) = logic_stage : ""
+[
+  output OnStageEnd(void) : ""
+]
+
+@PointClass base(Targetname, Angles) studio("models/editor/cone_helper.mdl") = info_particle_emitter : ""
+[
+	particle(string) : "Particle System Name"
+
+  input EmitParticle(void) : ""
+]
