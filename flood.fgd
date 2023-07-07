@@ -31,3 +31,12 @@
 
   input EmitParticle(void) : ""
 ]
+
+@PointClass base(Targetname) size(16 16 16) = point_hint : ""
+[
+	text(string) : "Text to display"
+	Icon(string) : "Silkicons"
+	duration(integer) : "Duration"
+
+  input Show(void) : ""
+]

@@ -17,26 +17,22 @@ function class:SetupDataTables()
     self.Player:NetworkVar("Float", 1, "MaxAir")
     self.Player:NetworkVar("Float", 2, "Stamina")
     self.Player:NetworkVar("Float", 3, "MaxStamina")
-
-    if (SERVER) then
-        self.Player:SetAir(100)
-        self.Player:SetMaxAir(100)
-        self.Player:SetStamina(100)
-        self.Player:SetMaxStamina(100)
-    end
 end
 
 function class:init()
     self.Player:SetModel(self.playermodel)
-
+    
     self.Player:SetWalkSpeed(self.WalkSpeed)
     self.Player:SetRunSpeed(self.RunSpeed)
     self.Player:SetSlowWalkSpeed(self.SlowWalkSpeed)
     self.Player:SetJumpPower(175)
+    self.Player:SetCustomCollisionCheck(true)
+    self.Player:CrosshairDisable()
 
-    self.Player:SetAvoidPlayers(true)
-    self.Player:SetNoCollideWithTeammates(true)
-    self.Player:SetTeam(0)
+    self.Player:SetAir(100)
+    self.Player:SetMaxAir(100)
+    self.Player:SetStamina(100)
+    self.Player:SetMaxStamina(100)
 
     self.Player.drown = false
 end

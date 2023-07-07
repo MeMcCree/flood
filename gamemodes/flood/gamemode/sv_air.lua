@@ -1,6 +1,7 @@
 local airPrevThink = airPrevThink or 0
 local airTickTime = .1
-local airLostAddPerTick = 10
+local airLostPerTick = 2.5
+local airAddPerTick = 2.5
 
 hook.Add("Think", "airThink", function()
 	if (CurTime() - airPrevThink <= airTickTime) then return end
@@ -10,9 +11,9 @@ hook.Add("Think", "airThink", function()
 		if (!v:Alive()) then continue end
 
 		if (v:WaterLevel() != 3) then
-			v:AddAir(airLostAddPerTick, 0, 100)
+			v:AddAir(airAddPerTick, 0, 100)
 		else
-			v:SubAir(airLostAddPerTick, 0, v:GetMaxAir())
+			v:SubAir(airLostPerTick, 0, v:GetMaxAir())
 		end
 	end
 end)

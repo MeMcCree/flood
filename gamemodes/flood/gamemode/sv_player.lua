@@ -43,3 +43,7 @@ function _P:SubStamina(amount, n, m)
 		self:SetStamina(math.Clamp(self:GetStamina(), n, m))
 	end
 end
+
+hook.Add("ShouldCollide", "CustomCollisions", function(ent1, ent2)
+	if (ent1:IsPlayer() and ent2:IsPlayer()) then return false end
+end)

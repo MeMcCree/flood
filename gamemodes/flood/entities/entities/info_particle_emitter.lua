@@ -24,7 +24,6 @@ function ENT:KeyValue(k, v)
 
   print(k, v)
 	if (k == "particle") then
-    print(works)
 		self.ParticleName = v
     PrecacheParticleSystem(self.ParticleName)
 	end
